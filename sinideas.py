@@ -29,10 +29,12 @@ class ClimaApp:
                 response = requests.get(url)
                 data = response.json()
 
-                temperatura = data['main']['temp']
+                temperatura_kelvin = data['main']['temp']
+                temperatura_celsius = temperatura_kelvin - 273.15
+
                 descripcion = data['weather'][0]['description']
 
-                mensaje = f"Temperatura: {temperatura}°C\nDescripción: {descripcion.capitalize()}"
+                mensaje = f"Temperatura: {temperatura_celsius:.2f}°C\nDescripción: {descripcion.capitalize()}"
 
                 self.mostrar_mensaje("Clima", mensaje)
 
