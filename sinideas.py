@@ -64,3 +64,6 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = ClimaApp(root)
     root.mainloop()
+
+
+#Hola Juan
