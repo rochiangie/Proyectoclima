@@ -14,7 +14,7 @@ class ClimaApp:
         self.ciudad_entry = tk.Entry(root)
         self.ciudad_entry.pack()
 
-        self.buscar_button = tk.Button(root, text="Buscar Clima", command=self.obtener_clima)
+        self.buscar_button = tk.Button(root, text="Buscar clima", command=self.obtener_clima)
         self.buscar_button.pack()
 
         self.imagen_label = tk.Label(root)
