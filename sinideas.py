@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import messagebox
+from tkinter import ttk, messagebox
 import requests
 from PIL import Image, ImageTk
 
@@ -8,16 +8,28 @@ class ClimaApp:
         self.root = root
         self.root.title("Clima App")
 
-        self.ciudad_label = tk.Label(root, text="Nombre de la ciudad:")
+        # Crear un estilo
+        self.style = ttk.Style()
+
+        # Cambiar el tema (puedes elegir 'clam', 'alt', 'default', etc.)
+        self.style.theme_use('alt')
+
+        # Configurar estilo para etiquetas y botones
+        self.style.configure('TLabel', font=('Arial', 12), foreground='black')
+        self.style.configure('TButton', font=('Arial', 12), foreground='blue')
+
+        print("Bienvenido a la aplicación del clima")
+
+        self.ciudad_label = ttk.Label(root, text="Nombre de la ciudad:")
         self.ciudad_label.pack()
 
-        self.ciudad_entry = tk.Entry(root)
+        self.ciudad_entry = ttk.Entry(root)
         self.ciudad_entry.pack()
 
-        self.buscar_button = tk.Button(root, text="Buscar clima", command=self.obtener_clima)
+        self.buscar_button = ttk.Button(root, text="Buscar clima", command=self.obtener_clima)
         self.buscar_button.pack()
 
-        self.imagen_label = tk.Label(root)
+        self.imagen_label = ttk.Label(root)
         self.imagen_label.pack()
 
     def obtener_clima(self):
@@ -66,5 +78,3 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = ClimaApp(root)
     root.mainloop()
-
-
