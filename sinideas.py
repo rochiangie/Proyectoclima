@@ -2,11 +2,24 @@ import tkinter as tk
 from tkinter import messagebox
 import requests
 from PIL import Image, ImageTk
+from colorama import init, Fore, Back, Style
+import os
+
+# Inicializar colorama
+init(autoreset=True)
 
 class ClimaApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Clima App")
+
+        # Establecer el color de la consola
+        os.system("color 0A")  # Cambia el fondo a negro y el texto a verde
+
+        # Cambiar el tamaño de la consola
+        os.system("mode con: cols=120 lines=50")  # Cambia el tamaño a 80 columnas y 30 líneas
+
+        print(Fore.GREEN + "Bienvenido a la aplicación del clima")
 
         self.ciudad_label = tk.Label(root, text="Nombre de la ciudad:")
         self.ciudad_label.pack()
@@ -66,5 +79,3 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = ClimaApp(root)
     root.mainloop()
-
-
