@@ -7,12 +7,13 @@ class ClimaApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Clima App")
+        self.imagen = None
 
         # Crear un estilo
         self.style = ttk.Style()
 
         # Cambiar el tema (puedes elegir 'clam', 'alt', 'default', etc.)
-        self.style.theme_use('alt')
+        self.style.theme_use('clam')
 
         # Configurar estilo para etiquetas y botones
         self.style.configure('TLabel', font=('Arial', 12), foreground='black')
@@ -71,8 +72,8 @@ class ClimaApp:
         return imagen
 
     def mostrar_imagen(self, imagen):
+        self.imagen = imagen
         self.imagen_label.configure(image=imagen)
-        self.imagen_label.image = imagen
 
 if __name__ == "__main__":
     root = tk.Tk()
